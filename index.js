@@ -16,6 +16,15 @@ const tickRoutes = require("./routes/tick");
 app.use("/", integrationRoutes); // Handles GET /integration.json
 app.use("/", tickRoutes);        // Handles POST /tick
 
+const axios = require('axios');
+
+setInterval(() => {
+    axios.get('https://pagespeed-insight.onrender.com')
+        .then(() => console.log("Keeping service alive..."))
+        .catch(err => console.error("Error in keep-alive ping:", err.message));
+}, 5 * 60 * 1000); // Every 5 minutes
+
+
 // Define a port
 const PORT = process.env.PORT || 3000;
 
