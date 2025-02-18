@@ -25,7 +25,7 @@ setInterval(() => {
 }, 5 * 60 * 1000); // Every 5 minutes
 
 
-// Define a port
+// Define a por
 const PORT = process.env.PORT || 3000;
 
 // Start the server
