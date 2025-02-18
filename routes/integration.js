@@ -41,7 +41,7 @@ app.get("/integrations.json", (req,res)=>{
                   "default": ""
                 }
               ],
-              "target_url": "https://pagespeed-insight.onrender.com/integration",
+              "target_url": "https://pagespeed-insight.onrender.com/integrations.json",
               "tick_url": "https://pagespeed-insight.onrender.com/tick"
             }          
     });
