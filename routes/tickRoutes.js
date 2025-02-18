@@ -14,13 +14,15 @@ async function postToReturnUrl(returnUrl, message) {
             headers: { 'Content-Type': 'application/json' } // Set the correct Content-Type header
         });
     } catch (error) {
-        console.error("Error posting to return_url:", error);
+        console.error("Error posting to target_url:", error);
         throw error; //Re-throw so calling function knows it failed
     }
 }
 router.post('/tick', async (req, res) => {
     try {
-        const { settings, return_url } = req.body;
+        const { settings, target_url } = req.body;
+
+        console.log(target_url);
 
         // Extract settings
         const siteSetting = settings.find(s => s.label === "site");
@@ -48,7 +50,7 @@ router.post('/tick', async (req, res) => {
 
         if (!seoChecker) {
             const errorMessage = "SEO check failed.";
-            await postToReturnUrl(return_url, errorMessage)
+            await postToReturnUrl(target_url, errorMessage)
             return res.status(500).json({ error: errorMessage });
         }
 
@@ -67,20 +69,20 @@ router.post('/tick', async (req, res) => {
         // Construct message for Telex
         const message = `SEO Report for ${seoChecker.site}:\n- Performance: ${seoChecker.performance}%\n${reportSummary}`;
 
-        // Post to return_url (Telex)
-        await postToReturnUrl(return_url, message);
+        // Post to target_url (Telex)
+        await postToReturnUrl(target_url, message);
 
         res.status(202).json({ status: "accepted", site: seoChecker.site, performance: seoChecker.performance });
 
     } catch (error) {
         console.error("Error in /tick route:", error);
         try {
-            //Attempt to send error to return_url even on failure
-            if (req.body.return_url) {
-                await postToReturnUrl(req.body.return_url, "Internal server error during SEO check.");
+            //Attempt to send error to target_url even on failure
+            if (req.body.target_url) {
+                await postToReturnUrl(req.body.target_url, "Internal server error during SEO check.");
             }
         } catch (postError) {
-            console.error("Failed to post error message to return_url", postError)
+            console.error("Failed to post error message to target_url", postError)
         }
         res.status(500).json({ error: "Internal server error." });
     }

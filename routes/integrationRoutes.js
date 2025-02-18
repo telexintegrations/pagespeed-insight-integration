@@ -63,7 +63,7 @@ router.get("/integrations.json", (req, res) => {
                 }
             ],
             "tick_url": `${baseUrl}/tick`, //Use our baseUrl variable here
-            "return_url": "https://ping.telex.im/v1/webhooks/01951368-307d-79ee-829b-bbdc3e2d8788" 
+            "target_url": "https://ping.telex.im/v1/webhooks/01951368-307d-79ee-829b-bbdc3e2d8788" 
         }
     };
 
