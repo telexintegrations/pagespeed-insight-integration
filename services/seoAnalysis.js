@@ -3,10 +3,13 @@ const cron = require('cron')
 
 
  const checkSeoHealth = async (site)=>{
-    const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${site}&key=$${process.env.GOOGLE_API_KEY}`
-
-    
+  
    try {
+
+        const apiKey = process.env.GOOGLE_API_KEY;
+        const encodedSite = encodeURIComponent(site); // Encode the URL
+        const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodedSite}&key=${apiKey}`;
+    
         const response = await axios.get(apiUrl);
         const data = response.data;
 
@@ -46,7 +49,7 @@ const cron = require('cron')
     
         return {
             site,
-            performance: performance.score * 100,
+            performance: performanceScore * 100,
             reportSummary: report
         };
 
