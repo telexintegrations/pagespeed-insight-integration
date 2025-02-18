@@ -20,6 +20,7 @@ app.get("/integration", (req,res)=>{
                 "app_url": "https://pagespeed-insight.onrender.com",
                 "background_color": "#fff"
               },
+              "integration_category": "Marketing Automation",
               "is_active": true,
               "integration_type": "interval",
               "key_features": [
@@ -37,7 +38,7 @@ app.get("/integration", (req,res)=>{
                   "label": "interval",
                   "type": "text",
                   "required": true,
-                  "default": "5"
+                  "default": ""
                 }
               ],
               "target_url": "https://pagespeed-insight.onrender.com/integration",
