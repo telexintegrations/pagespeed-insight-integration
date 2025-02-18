@@ -4,7 +4,7 @@ const app = express.Router();
 
 // Here I target the the integration Json end poiny as pointed out by the
 
-app.get("/integrations.json", (req,res)=>{
+app.get("/integration.json", (req,res)=>{
     const baseUrl = `${req.protocol}://${req.get("host")}`;
     res.json(
         {
