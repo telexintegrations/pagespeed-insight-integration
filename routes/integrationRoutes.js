@@ -21,19 +21,12 @@ router.get("/integration.json", (req, res) => {
             "is_active": false,
             "integration_type": "interval",
             "key_features": [ "seo"],
-            "integration_category": "Marketing Automation",
+            "integration_category": "Monitoring and Logging",
             "author": "Micah Erumaka",
             "website": baseUrl,
             "settings": [
                 {
                     "label": "site-1",
-                    "type": "text",
-                    "description": "The URL of the website to monitor",
-                    "required": true,
-                    "default": "https://naijaceo.com"
-                },
-                {
-                    "label": "site-2",
                     "type": "text",
                     "description": "The URL of the website to monitor",
                     "required": true,
