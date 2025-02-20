@@ -42,30 +42,29 @@ router.get("/integration.json", (req, res) => {
                  {
                     "label": "interval",
                     "type": "text",
-                    "description": "How often to run the check (crontab syntax)",
                     "required": true,
-                    "default": "* * * * *" 
+                    "default": "0 * * * *"
                 },
                 {
                     "label": "performanceThreshold",
                     "type": "number",
                     "description": "Minimum acceptable PageSpeed Insights performance score (0-100)",
-                    "required": true,
-                    "default": 70  
+                    "default": 70,
+                    "required": true,  
                 },
                   {
                     "label": "brokenLinksLimit",
                     "type": "number",
                     "description": "Maximum number of broken links to tolerate before reporting",
-                    "required": true,
-                    "default": 1  
+                    "default": 1 ,
+                    "required": true, 
                 },
                   {
                     "label": "slowPagesLimit",
                     "type": "number",
                     "description": "Maximum number of slow pages to tolerate before reporting",
-                    "required": true,
-                    "default": 2  
+                    "default": 2,
+                    "required": true,  
                 }
             ],
             "tick_url": `${baseUrl}/tick`, 
