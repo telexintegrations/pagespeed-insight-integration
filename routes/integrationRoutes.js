@@ -42,8 +42,9 @@ router.get("/integration.json", (req, res) => {
                  {
                     "label": "interval",
                     "type": "text",
+                    "description": "How often to run the check (crontab syntax)",
                     "required": true,
-                    "default": "* * * * *"
+                    "default": "* * * * *" 
                 },
                 {
                     "label": "performanceThreshold",
