@@ -5,24 +5,28 @@ const axios = require('axios'); //Ensure axios is required here
 
 async function postToReturnUrl(returnUrl, message) {
     try {
-        await axios.post(returnUrl, {
-            message: message,
-            username: "SEO Monitor",
-            event_name: "SEO Check",
-            status: "info"
-        }, {
-            headers: { 'Content-Type': 'application/json' } // Set the correct Content-Type header
+        const payload = {
+            event_name: "SEO Check", // Event name for Telex
+            message: message,        // The actual message
+            status: "info",          // Status (e.g., success, error, info)
+            username: "SEO Monitor"  // Username for the message
+        };
+
+        console.log("Payload to Telex:", payload);
+        const response = await axios.post(returnUrl, payload, {
+            headers: { 'Content-Type': 'application/json' }
         });
+
+        console.log("Data posted to Telex:", response.data);
+        return response.data; // Return the response data
     } catch (error) {
-        console.error("Error posting to target_url:", error);
-        throw error; //Re-throw so calling function knows it failed
+        console.error("Error posting to Telex:", error.response ? error.response.data : error.message);
+        throw error; // Re-throw the error for the calling function to handle
     }
 }
 router.post('/tick', async (req, res) => {
     try {
-        const { settings, target_url } = req.body;
-
-        console.log(target_url);
+        const { settings, return_url  } = req.body;
 
         // Extract settings
         const siteSetting = settings.find(s => s.label === "site");
@@ -50,7 +54,7 @@ router.post('/tick', async (req, res) => {
 
         if (!seoChecker) {
             const errorMessage = "SEO check failed.";
-            await postToReturnUrl(target_url, errorMessage)
+            await postToReturnUrl(return_url , errorMessage)
             return res.status(500).json({ error: errorMessage });
         }
 
@@ -69,20 +73,20 @@ router.post('/tick', async (req, res) => {
         // Construct message for Telex
         const message = `SEO Report for ${seoChecker.site}:\n- Performance: ${seoChecker.performance}%\n${reportSummary}`;
 
-        // Post to target_url (Telex)
-        await postToReturnUrl(target_url, message);
+        // Post to return_url  (Telex)
+        await postToReturnUrl(return_url , message);
 
         res.status(202).json({ status: "accepted", site: seoChecker.site, performance: seoChecker.performance });
 
     } catch (error) {
         console.error("Error in /tick route:", error);
         try {
-            //Attempt to send error to target_url even on failure
-            if (req.body.target_url) {
-                await postToReturnUrl(req.body.target_url, "Internal server error during SEO check.");
+            //Attempt to send error to return_url  even on failure
+            if (req.body.return_url ) {
+                await postToReturnUrl(req.body.return_url, "Internal server error during SEO check.");
             }
         } catch (postError) {
-            console.error("Failed to post error message to target_url", postError)
+            console.error("Failed to post error message to return_url ", postError)
         }
         res.status(500).json({ error: "Internal server error." });
     }

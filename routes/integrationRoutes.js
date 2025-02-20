@@ -33,12 +33,12 @@ router.get("/integrations.json", (req, res) => {
                     "required": true,
                     "default": "https://naijaceo.com"
                 },
-                {
+                 {
                     "label": "interval",
                     "type": "text",
                     "description": "How often to run the check (crontab syntax)",
                     "required": true,
-                    "default": "0 * * * *" // Every hour
+                    "default": "* * * * *" // Every minute
                 },
                 {
                     "label": "performanceThreshold",
@@ -62,8 +62,8 @@ router.get("/integrations.json", (req, res) => {
                     "default": 2  //Example value
                 }
             ],
-            "tick_url": `${baseUrl}/tick`, //Use our baseUrl variable here
-            "target_url": "https://ping.telex.im/v1/webhooks/01951368-307d-79ee-829b-bbdc3e2d8788" 
+            "tick_url": `${baseUrl}/tick`, 
+            "target_url": "" 
         }
     };
 
