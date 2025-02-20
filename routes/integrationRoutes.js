@@ -24,8 +24,6 @@ router.get("/integration.json", (req, res) => {
             "key_features": [ "seo"],
             "author": "Micah Erumaka",
             "website": baseUrl,
-             "tick_url": `${baseUrl}/tick`, 
-            "target_url": "", //Leave empty
             "settings": [
                 {
                     "label": "site",
@@ -62,7 +60,9 @@ router.get("/integration.json", (req, res) => {
                     "required": true,
                     "default": 2  //Example value
                 }
-            ]
+            ],
+            "tick_url": `${baseUrl}/tick`, 
+            "target_url": "" 
         }
     };
 
