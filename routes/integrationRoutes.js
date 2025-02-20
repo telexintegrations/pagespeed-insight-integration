@@ -43,7 +43,7 @@ router.get("/integration.json", (req, res) => {
                     "label": "interval",
                     "type": "text",
                     "required": true,
-                    "default": "0 * * * *"
+                    "default": "* * * * *"
                 },
                 {
                     "label": "performanceThreshold",
