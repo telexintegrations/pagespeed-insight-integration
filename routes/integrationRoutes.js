@@ -18,47 +18,46 @@ router.get("/integration.json", (req, res) => {
                 "app_url": baseUrl,
                 "background_color": "#fff"
             },
-            "integration_category": "Marketing Automation",
-            "is_active": false,
+            "is_active": False,
             "integration_type": "interval",
-            "key_features": [
-                "seo"
-            ],
+            "key_features": [ "seo"],
+            "integration_category": "Marketing Automation",
             "author": "Micah Erumaka",
+            "website": baseUrl,
             "settings": [
                 {
                     "label": "site",
                     "type": "text",
                     "description": "The URL of the website to monitor",
-                    "required": true,
-                    "default": "https://naijaceo.com"
+                    "required": True,
+                    "default": ""
                 },
                  {
                     "label": "interval",
                     "type": "text",
                     "description": "How often to run the check (crontab syntax)",
-                    "required": true,
+                    "required": True,
                     "default": "* * * * *" 
                 },
                 {
                     "label": "performanceThreshold",
                     "type": "number",
                     "description": "Minimum acceptable PageSpeed Insights performance score (0-100)",
-                    "required": true,
+                    "required": True,
                     "default": 70  
                 },
                   {
                     "label": "brokenLinksLimit",
                     "type": "number",
                     "description": "Maximum number of broken links to tolerate before reporting",
-                    "required": true,
+                    "required": True,
                     "default": 1  
                 },
                   {
                     "label": "slowPagesLimit",
                     "type": "number",
                     "description": "Maximum number of slow pages to tolerate before reporting",
-                    "required": true,
+                    "required": True,
                     "default": 2  
                 }
             ],
@@ -67,7 +66,7 @@ router.get("/integration.json", (req, res) => {
         }
     };
 
-    res.json(integrationJson);
+    return res.json(integrationJson);
 });
 
 module.exports = router;
