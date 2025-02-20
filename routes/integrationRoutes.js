@@ -18,7 +18,7 @@ router.get("/integration.json", (req, res) => {
                 "app_url": baseUrl,
                 "background_color": "#fff"
             },
-            "is_active": False,
+            "is_active": false,
             "integration_type": "interval",
             "key_features": [ "seo"],
             "integration_category": "Marketing Automation",
@@ -29,35 +29,35 @@ router.get("/integration.json", (req, res) => {
                     "label": "site",
                     "type": "text",
                     "description": "The URL of the website to monitor",
-                    "required": True,
+                    "required": true,
                     "default": ""
                 },
                  {
                     "label": "interval",
                     "type": "text",
                     "description": "How often to run the check (crontab syntax)",
-                    "required": True,
+                    "required": true,
                     "default": "* * * * *" 
                 },
                 {
                     "label": "performanceThreshold",
                     "type": "number",
                     "description": "Minimum acceptable PageSpeed Insights performance score (0-100)",
-                    "required": True,
+                    "required": true,
                     "default": 70  
                 },
                   {
                     "label": "brokenLinksLimit",
                     "type": "number",
                     "description": "Maximum number of broken links to tolerate before reporting",
-                    "required": True,
+                    "required": true,
                     "default": 1  
                 },
                   {
                     "label": "slowPagesLimit",
                     "type": "number",
                     "description": "Maximum number of slow pages to tolerate before reporting",
-                    "required": True,
+                    "required": true,
                     "default": 2  
                 }
             ],
