@@ -45,7 +45,6 @@ const cron = require('cron')
             report += `\nUnoptimized Content: Offscreen images are not deferred.\n`;
         }
 
-        // console.log("Posting to Telex:\n", report);
     
         return {
             site,

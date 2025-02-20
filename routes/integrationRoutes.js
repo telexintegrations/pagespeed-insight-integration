@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get("/integration.json", (req, res) => {
-    //Use a secure base url from env so if we need to change it its not hardcoded
+    
     const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get("host")}`;
 
     const integrationJson = {
@@ -38,28 +38,28 @@ router.get("/integration.json", (req, res) => {
                     "type": "text",
                     "description": "How often to run the check (crontab syntax)",
                     "required": true,
-                    "default": "* * * * *" // Every minute
+                    "default": "* * * * *" 
                 },
                 {
                     "label": "performanceThreshold",
                     "type": "number",
                     "description": "Minimum acceptable PageSpeed Insights performance score (0-100)",
                     "required": true,
-                    "default": 70  //Example value
+                    "default": 70  
                 },
                   {
                     "label": "brokenLinksLimit",
                     "type": "number",
                     "description": "Maximum number of broken links to tolerate before reporting",
                     "required": true,
-                    "default": 1  //Example value
+                    "default": 1  
                 },
                   {
                     "label": "slowPagesLimit",
                     "type": "number",
                     "description": "Maximum number of slow pages to tolerate before reporting",
                     "required": true,
-                    "default": 2  //Example value
+                    "default": 2  
                 }
             ],
             "tick_url": `${baseUrl}/tick`, 
