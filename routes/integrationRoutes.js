@@ -20,6 +20,7 @@ router.get("/integration.json", (req, res) => {
           },
           "is_active": true,
           "integration_type": "interval",
+          "integration_category": "Monitoring & Logging",
           "key_features": [
             "seo"
           ],
