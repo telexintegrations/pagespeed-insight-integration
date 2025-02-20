@@ -7,33 +7,41 @@ router.get("/integration.json", (req, res) => {
 
     const integrationJson = {
         "data": {
-          "descriptions": {
-            "app_name": "Minimal SEO",
-            "app_description": "Basic SEO check",
-            "app_url": baseUrl // Replace with your app's URL
+          "date": {
+            "created_at": "2025-02-18",
+            "updated_at": "2025-02-18"
           },
+          "descriptions": {
+            "app_name": "Pagespeed-insight",
+            "app_description": "Monitors website SEO performance using Google PageSpeed",
+            "app_logo": "https://i.imgur.com/lZqvffp.png",
+            "app_url": "https://pagespeed-insight.onrender.com",
+            "background_color": "#fff"
+          },
+          "is_active": true,
           "integration_type": "interval",
-          "integration_category": "Monitoring & Logging",
+          "key_features": [
+            "seo"
+          ],
           "author": "Micah Erumaka",
           "settings": [
             {
               "label": "site",
               "type": "text",
               "required": true,
-              "default": "https://naijaceo.com"
+              "default": "naijaceo.com"
             },
             {
               "label": "interval",
               "type": "text",
               "required": true,
-              "default": "* * * * *"
+              "default": "5"
             }
           ],
-          "tick_url": `${baseUrl}/tick`,   // Replace with your app's /tick URL
-          "target_url": "" // Leave empty
+          "target_url": "https://pagespeed-insight.onrender.com/integration",
+          "tick_url": "https://pagespeed-insight.onrender.com/tick"
         }
       }
-
     return res.json(integrationJson);
 });
 
