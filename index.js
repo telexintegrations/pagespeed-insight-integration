@@ -1,9 +1,20 @@
 require('dotenv').config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 
 
+app.use(cors({
+    origin: [
+        "http://staging.telextest.im", // Telex staging domain
+        "http://telextest.im",         // Telex test domain
+        "https://staging.telex.im",    // Telex staging domain
+        "https://telex.im"             // Telex production domain
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    credentials: true // Allow cookies and authentication headers
+}));
 
 app.use(express.json());
 
