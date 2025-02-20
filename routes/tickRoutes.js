@@ -4,17 +4,20 @@ const { checkSeoHealth } = require('../services/seoAnalysis');
 const axios = require('axios'); //Ensure axios is required here
 
 async function postToReturnUrl(returnUrl, message) {
+
+    console.log("This is the value of meessage: ", message)
+
     try {
         const payload = {
-            event_name: "SEO Check", // Event name for Telex
-            message: message,        // The actual message
-            status: "info",          // Status (e.g., success, error, info)
-            username: "SEO Monitor"  // Username for the message
+            "event_name": "SEO Check", // Event name for Telex
+            "message": message,        // The actual message
+            "status": "success",          // Status (e.g., success, error, info)
+            "username": "SEO Monitor"  // Username for the message
         };
 
         console.log("Payload to Telex:", payload);
         const response = await axios.post(returnUrl, payload, {
-            headers: { 'Content-Type': 'application/json' }
+            headers: { "Content-Type": "application/json" }
         });
 
         console.log("Data posted to Telex:", response.data);

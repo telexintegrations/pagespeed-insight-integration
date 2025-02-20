@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get("/integrations.json", (req, res) => {
+router.get("/integration.json", (req, res) => {
     //Use a secure base url from env so if we need to change it its not hardcoded
     const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get("host")}`;
 
@@ -19,7 +19,7 @@ router.get("/integrations.json", (req, res) => {
                 "background_color": "#fff"
             },
             "integration_category": "Marketing Automation",
-            "is_active": true,
+            "is_active": false,
             "integration_type": "interval",
             "key_features": [
                 "seo"
