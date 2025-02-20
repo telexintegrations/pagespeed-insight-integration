@@ -26,7 +26,7 @@ router.get("/integration.json", (req, res) => {
             "website": baseUrl,
             "settings": [
                 {
-                    "label": "site",
+                    "label": "site-1",
                     "type": "text",
                     "description": "The URL of the website to monitor",
                     "required": true,
