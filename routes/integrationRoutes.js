@@ -4,6 +4,7 @@ require('dotenv').config();
 router.get("/integration.json", (req, res) => {
     
     const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get("host")}`;
+    console.log(baseUrl)
 
     const integrationJson = {
         "data": {
@@ -32,13 +33,12 @@ router.get("/integration.json", (req, res) => {
                     "required": true,
                     "default": ""
                 },
-                 {
+                {
                     "label": "interval",
                     "type": "text",
-                    "description": "How often to run the check (crontab syntax)",
                     "required": true,
-                    "default": "* * * * *" 
-                },
+                    "default": "0 0 * * 0"
+                  },
                 {
                     "label": "performanceThreshold",
                     "type": "number",
