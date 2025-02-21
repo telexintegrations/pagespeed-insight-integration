@@ -33,7 +33,7 @@ router.get("/integration.json", (req, res) => {
                     "label": "interval",
                     "type": "text",
                     "required": true,
-                    "default": "0 0 * * 0"
+                    "default": "*/1 * * * *"
                   },
                 {
                     "label": "performance Threshold",

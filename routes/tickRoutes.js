@@ -10,8 +10,8 @@ async function postToReturnUrl(returnUrl, message) {
     try {
         const payload = {
             "event_name": "SEO Check", // Event name for Telex
-            "message": message,        // The actual message
             "status": "success",          // Status (e.g., success, error)
+            "message": message, 
             "username": "SEO Monitor"  // Username for the message
         };
 
