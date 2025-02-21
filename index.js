@@ -29,13 +29,13 @@ app.use("/", tickRoutes);
 const axios = require('axios');
 
 
-function keepAlive(){
-    axios.get(process.env.BASE_URL)
-        .then(() => console.log("Keeping service alive..."))
-        .catch(err => console.error("Error in keep-alive ping:", err.message));
-}
-// Use setInterval to ping to keep the instance alive on render
-setInterval(keepAlive, 5 * 60 * 1000); // Every 5 minutes
+// function keepAlive(){
+//     axios.get(process.env.BASE_URL)
+//         .then(() => console.log("Keeping service alive..."))
+//         .catch(err => console.error("Error in keep-alive ping:", err.message));
+// }
+// // Use setInterval to ping to keep the instance alive on render
+// setInterval(keepAlive, 5 * 60 * 1000); // Every 5 minutes
 
 const PORT=process.env.PORT|| 3000;
 

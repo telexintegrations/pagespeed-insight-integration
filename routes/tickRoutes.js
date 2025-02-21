@@ -29,6 +29,11 @@ async function postToReturnUrl(returnUrl, message) {
 }
 router.post('/tick', async (req, res) => {
     try {
+
+
+        console.log("Telex is calling the /tick endpoint!"); // **Crucial Log**
+        console.log("Request body:", req.body); // **Log the entire request body**
+
         const { settings, return_url  } = req.body;
 
         // Extract settings
