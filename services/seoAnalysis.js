@@ -7,6 +7,9 @@ const cron = require('cron')
    try {
 
         const apiKey = process.env.GOOGLE_API_KEY;
+        if (!apiKey) {
+            throw new Error('Google API key is missing. Please set the GOOGLE_API_KEY environment variable.');
+        }
         const encodedSite = encodeURIComponent(site); // Encode the URL
         const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodedSite}&key=${apiKey}`;
     

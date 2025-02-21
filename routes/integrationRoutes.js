@@ -20,7 +20,7 @@ router.get("/integration.json", (req, res) => {
             },
             "is_active": false,
             "integration_type": "interval",
-            "key_features": [ "seo"],
+            "key_features": [ "seo Perfomance Monitoring"],
             "integration_category": "Performance Monitoring",
             "author": "Micah Erumaka",
             "website": baseUrl,
