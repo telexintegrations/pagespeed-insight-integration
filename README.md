@@ -49,8 +49,8 @@ This section provides examples of how the SEO Monitoring integration works with 
     *   `performanceThreshold`: `70`
     *   `brokenLinksLimit`: `5`
     *   `slowPagesLimit`: `3`
+
 *   **Expected Output (in Telex Channel):**
-
-
+    See Screenshot Below
 ## Screenshot
-![Telex Channel](./assets/telex-integration-screenshot.png)
+![Telex Channel](./assets/telex-channel-message-screenshot.png)
