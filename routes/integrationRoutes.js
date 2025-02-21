@@ -4,7 +4,6 @@ require('dotenv').config();
 router.get("/integration.json", (req, res) => {
     
     const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get("host")}`;
-    console.log(baseUrl)
 
     const integrationJson = {
         "data": {
