@@ -18,12 +18,10 @@ router.get("/integration.json", (req, res) => {
                 "app_url": baseUrl,
                 "background_color": "#fff"
             },
-            "is_active": true,
-            "integration_type": "interval",
-            "key_features": [ "seo Perfomance Monitoring"],
-            "integration_category": "Monitoring & Logging",
             "author": "Micah Erumaka",
-            // "website": baseUrl,
+            "key_features": [ "seo Perfomance Monitoring"],
+            "integration_type": "interval",
+            "integration_category": "Monitoring & Logging",
             "settings": [
                 {
                     "label": "site-1",
