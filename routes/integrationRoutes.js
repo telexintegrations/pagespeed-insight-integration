@@ -24,7 +24,7 @@ router.get("/integration.json", (req, res) => {
             "integration_category": "Monitoring & Logging",
             "settings": [
                 {
-                    "label": "site-1",
+                    "label": "site",
                     "type": "text",
                     "required": true,
                     "default": ""
@@ -36,7 +36,7 @@ router.get("/integration.json", (req, res) => {
                     "default": "*/1 * * * *"
                   },
                 {
-                    "label": "performance Threshold",
+                    "label": "performanceThreshold",
                     "type": "number",
                     "required": true,
                     "default": 70  
