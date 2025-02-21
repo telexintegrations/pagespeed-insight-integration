@@ -54,3 +54,5 @@ This section provides examples of how the SEO Monitoring integration works with 
     See Screenshot Below
 ## Screenshot
 ![Telex Channel](./assets/telex-channel-message-screenshot.png)
+
+*/1 * * * *

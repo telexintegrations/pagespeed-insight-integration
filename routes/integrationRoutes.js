@@ -12,23 +12,22 @@ router.get("/integration.json", (req, res) => {
                 "updated_at": "2025-02-18"
             },
             "descriptions": {
-                "app_name": "Pagespeed-insight",
                 "app_description": "Monitors website SEO performance using Google PageSpeed",
                 "app_logo": "https://res.cloudinary.com/naijaceo/image/upload/v1595027227/3d_logo_maker_bonus_ssqd0g.png",
+                "app_name": "Pagespeed-insight",
                 "app_url": baseUrl,
                 "background_color": "#fff"
             },
             "is_active": true,
             "integration_type": "interval",
             "key_features": [ "seo Perfomance Monitoring"],
-            "integration_category": "Performance Monitoring",
+            "integration_category": "Monitoring & Logging",
             "author": "Micah Erumaka",
-            "website": baseUrl,
+            // "website": baseUrl,
             "settings": [
                 {
                     "label": "site-1",
                     "type": "text",
-                    "description": "The URL of the website to monitor",
                     "required": true,
                     "default": ""
                 },
@@ -39,25 +38,22 @@ router.get("/integration.json", (req, res) => {
                     "default": "0 0 * * 0"
                   },
                 {
-                    "label": "performanceThreshold",
+                    "label": "performance Threshold",
                     "type": "number",
-                    "description": "Minimum acceptable PageSpeed Insights performance score (0-100)",
-                    "default": 70,
-                    "required": true,  
+                    "required": true,
+                    "default": 70  
                 },
                   {
                     "label": "brokenLinksLimit",
                     "type": "number",
-                    "description": "Maximum number of broken links to tolerate before reporting",
-                    "default": 1 ,
-                    "required": true, 
+                    "required": true,
+                    "default": 1 
                 },
                   {
                     "label": "slowPagesLimit",
                     "type": "number",
-                    "description": "Maximum number of slow pages to tolerate before reporting",
-                    "default": 2,
-                    "required": true,  
+                    "required": true,
+                    "default": 2,  
                 }
             ],
             "tick_url": `${baseUrl}/tick`, 
