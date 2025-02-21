@@ -4,7 +4,7 @@ require('dotenv').config();
 router.get("/integration.json", (req, res) => {
     
     const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get("host")}`;
-
+    console.log(baseUrl);
     const integrationJson = {
         "data": {
             "date": {
@@ -18,7 +18,7 @@ router.get("/integration.json", (req, res) => {
                 "app_url": baseUrl,
                 "background_color": "#fff"
             },
-            "is_active": false,
+            "is_active": true,
             "integration_type": "interval",
             "key_features": [ "seo Perfomance Monitoring"],
             "integration_category": "Performance Monitoring",
