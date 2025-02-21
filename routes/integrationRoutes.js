@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+require('dotenv').config();
 router.get("/integration.json", (req, res) => {
     
     const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get("host")}`;
