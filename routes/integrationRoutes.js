@@ -3,8 +3,7 @@ const router = express.Router();
 
 router.get("/integration.json", (req, res) => {
     
-    const baseUrl = process.env.tick_url || `${req.protocol}://${req.get("host")}`;
-    console.log(baseUrl)
+    const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get("host")}`;
 
     const integrationJson = {
         "data": {
